@@ -2,8 +2,8 @@
  * <%= props.name %>
  * <%= props.homepage %>
  *
- * Copyright (c) <%= currentYear %> <%= props.author_name %>
- * Licensed under the <%= props.licenses.join(', ') %> license<%= props.licenses.length === 1 ? '' : 's' %>.
+ * Copyright (c) <%= currentYear %> <%= props.authorName %>
+ * Licensed under the <%= props.license %> license.
  */
 
 'use strict';
@@ -13,7 +13,7 @@ module.exports = function(grunt) {
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
-  grunt.registerMultiTask('<%= props.short_name %>', '<%= props.description %>', function() {
+  grunt.registerMultiTask('<%= shortname %>', '<%= props.description %>', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
       punctuation: '.',

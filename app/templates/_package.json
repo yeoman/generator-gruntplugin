@@ -1,0 +1,33 @@
+{
+  "name": "<%= slugname %>",
+  "version": "0.0.0",
+  "description": "<%= props.description %>",
+  "homepage": "<%= props.homepage %>",
+  "bugs": "<%= repoUrl %>/issues",
+  "author": {
+    "name": "<%= props.authorName %>",
+    "email": "<%= props.authorEmail %>"<% if (props.authorUrl) { %>,
+    "url": "<%= props.authorUrl %>"<% } %>
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "<%= repoUrl %>"
+  },
+  "licenses": [
+    {
+      "type": "<%= props.license %>"
+    }
+  ],
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.2.0",
+    "grunt-contrib-nodeunit": "~0.1.2",
+    "grunt-contrib-clean": "~0.4.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  }
+}
