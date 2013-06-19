@@ -22,7 +22,7 @@ var grunt = require('grunt');
     test.ifError(value)
 */
 
-exports.<%= props.short_name %> = {
+exports.<%= shortname %> = {
   setUp: function(done) {
     // setup here if necessary
     done();

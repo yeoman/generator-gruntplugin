@@ -1,14 +1,14 @@
 {
-  "name": "generator-node",
+  "name": "generator-gruntplugin",
   "version": "0.0.0",
-  "description": "A node generator for Yeoman",
+  "description": "A Grunt plugin generator for Yeoman",
   "keywords": [
     "yeoman-generator",
     "scaffold",
-    "node"
+    "grunt"
   ],
-  "homepage": "https://github.com/yeoman/generator-node",
-  "bugs": "https://github.com/yeoman/generator-node/issues",
+  "homepage": "https://github.com/yeoman/generator-gruntplugin",
+  "bugs": "https://github.com/yeoman/generator-gruntplugin/issues",
   "author": {
     "name": "Pascal Hartig",
     "email": "phartig@rdrei.net",
@@ -17,15 +17,13 @@
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yeoman/generator-node.git"
+    "url": "https://github.com/yeoman/generator-gruntplugin.git"
   },
   "scripts": {
     "test": "mocha"
   },
   "dependencies": {
-    "yeoman-generator": "~0.10.5",
-    "async": "~0.2.8",
-    "grunt-prompts": "~0.1.1"
+    "yeoman-generator": "~0.12.0"
   },
   "devDependencies": {
     "mocha": "~1.9.0"
