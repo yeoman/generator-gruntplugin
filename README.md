@@ -6,7 +6,7 @@ This generator is based of
 [grunt-init-gruntplugin](https://github.com/gruntjs/grunt-init-gruntplugin), authored by the
 magnificient GruntJS team.
 
-Maintained by [Pascal Hartig](https://github.com/passy).
+Maintained by Addy Osmani and Stephen Sawchuck
 
 [Yeoman]: http://yeoman.io/
 
