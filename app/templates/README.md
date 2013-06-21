@@ -3,7 +3,7 @@
 > <%= props.description %>
 
 ## Getting Started
-This plugin requires Grunt `<%= props.grunt_version %>`
+This plugin requires Grunt.
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
@@ -17,14 +17,14 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('<%= props.name %>');
 ```
 
-## The "<%= props.slugname %>" task
+## The "<%= shortname %>" task
 
 ### Overview
-In your project's Gruntfile, add a section named `<%= props.slugname %>` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `<%= shortname %>` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
-  <%= props.slugname %>: {
+  <%= shortname %>: {
     options: {
       // Task-specific options go here.
     },
@@ -56,7 +56,7 @@ In this example, the default options are used to do something with whatever. So 
 
 ```js
 grunt.initConfig({
-  <%= props.slugname %>: {
+  <%= shortname %>: {
     options: {},
     files: {
       'dest/default_options': ['src/testing', 'src/123'],
@@ -70,7 +70,7 @@ In this example, custom options are used to do something else with whatever else
 
 ```js
 grunt.initConfig({
-  <%= props.slugname %>: {
+  <%= shortname %>: {
     options: {
       separator: ': ',
       punctuation: ' !!!',
@@ -89,5 +89,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 _(Nothing yet)_
 
 ## License
-Copyright (c) <%= currentYear %> <%= props.author_name %>  
-Licensed under the <%= props.licenses.join(', ') %> license<%= props.licenses.length === 1 ? '' : 's' %>.
+Copyright (c) <%= currentYear %> <%= props.authorName %>. Licensed under the <%= props.license %> license.
