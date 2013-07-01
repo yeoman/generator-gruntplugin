@@ -1,6 +1,6 @@
 {
   "name": "generator-gruntplugin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Grunt plugin generator for Yeoman",
   "keywords": [
     "yeoman-generator",
@@ -10,9 +10,9 @@
   "homepage": "https://github.com/yeoman/generator-gruntplugin",
   "bugs": "https://github.com/yeoman/generator-gruntplugin/issues",
   "author": {
-    "name": "Pascal Hartig",
-    "email": "phartig@rdrei.net",
-    "url": "https://github.com/passy"
+    "name": "Yeoman team",
+    "email": "addyosmani@gmail.com",
+    "url": "https://github.com/yeoman"
   },
   "main": "app/index.js",
   "repository": {
@@ -23,7 +23,7 @@
     "test": "mocha"
   },
   "dependencies": {
-    "yeoman-generator": "~0.12.0"
+    "yeoman-generator": "~0.12.2"
   },
   "devDependencies": {
     "mocha": "~1.9.0"
