@@ -3,7 +3,7 @@
 var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
-var gruntprompts = require('grunt-prompts');
+
 
 var GruntpluginGenerator = module.exports = function GruntpluginGenerator(args, options) {
   yeoman.generators.Base.apply(this, arguments);
@@ -116,5 +116,4 @@ GruntpluginGenerator.prototype.projectfiles = function projectfiles() {
   this.template('README.md');
   this.template('Gruntfile.js');
   this.template('_package.json', 'package.json');
-  //this.write('package.json', gruntprompts.packageJSON(this.props));
 };
