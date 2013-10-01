@@ -3,6 +3,7 @@
 var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
+var gruntprompts = require('grunt-prompts');
 
 var GruntpluginGenerator = module.exports = function GruntpluginGenerator(args, options) {
   yeoman.generators.Base.apply(this, arguments);
@@ -45,26 +46,38 @@ GruntpluginGenerator.prototype.askFor = function askFor() {
   }, {
     name: 'description',
     message: 'Description',
-    default: 'The best plugin ever.'
+    default: 'The best Grunt plugin ever.'
+  }, {
+    name: 'version',
+    message: 'Version',
+    default: '0.0.1'
+  }, {
+    name: 'repository',
+    message: 'Project git repository'
   }, {
     name: 'homepage',
-    message: 'Homepage'
+    message: 'Project homepage'
   }, {
     name: 'license',
     message: 'License',
     default: 'MIT'
   }, {
-    name: 'githubUsername',
-    message: 'GitHub username'
+    name: 'author_name',
+    message: 'Author name'
   }, {
-    name: 'authorName',
-    message: 'Author\'s Name'
+    name: 'author_email',
+    message: 'Author email'
   }, {
-    name: 'authorEmail',
-    message: 'Author\'s Email'
-  }, {
-    name: 'authorUrl',
-    message: 'Author\'s Homepage'
+    name: 'author_url',
+    message: 'Author url'
+  },{
+    name: 'node_version',
+    message: 'What versions of node does it run on?',
+    default: '>= 0.8.0'
+  },{
+    name: 'grunt_version',
+    message: 'What version of grunt does it need?',
+    default: '~0.4.0rc2'
   }];
 
   this.currentYear = (new Date()).getFullYear();
@@ -73,8 +86,7 @@ GruntpluginGenerator.prototype.askFor = function askFor() {
     this.slugname = this._.slugify(props.name);
 
     this.shortname = props.name.replace(/^grunt[\-_]?/, '').replace(/[\W_]+/g, '_').replace(/^(\d)/, '_$1');
-
-    this.repoUrl = 'https://github.com/' + props.githubUsername + '/' + this.slugname;
+    this.author_name = props.author_name.replace(/[\\"']/g, '\\$&').replace(/\u0000/g, '\\0');
 
     if (!props.homepage) {
       props.homepage = this.repoUrl;
@@ -104,4 +116,5 @@ GruntpluginGenerator.prototype.projectfiles = function projectfiles() {
   this.template('README.md');
   this.template('Gruntfile.js');
   this.template('_package.json', 'package.json');
+  //this.write('package.json', gruntprompts.packageJSON(this.props));
 };

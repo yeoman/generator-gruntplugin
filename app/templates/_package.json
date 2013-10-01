@@ -1,21 +1,25 @@
 {
   "name": "<%= slugname %>",
-  "version": "0.0.0",
-  "description": "<%= props.description %>",
+  "version": "<%= props.version %>",
+  "description": "<%= description %>",
   "homepage": "<%= props.homepage %>",
-  "bugs": "<%= repoUrl %>/issues",
+  "repository": "<%= props.repository %>",
+  "bugs": "<%= props.repository %>/issues",
   "author": {
-    "name": "<%= props.authorName %>",
-    "email": "<%= props.authorEmail %>"<% if (props.authorUrl) { %>,
-    "url": "<%= props.authorUrl %>"<% } %>
+    "name": "<%= author_name %>",
+    "email": "<%= props.author_email %>"<% if (props.author_url) { %>,
+    "url": "<%= props.author_url %>"<% } %>
   },
   "keywords": [
     "gruntplugin"
   ],
   "main": "Gruntfile.js",
+  "engines": {
+    "node": "<%= props.node_version %>"
+  },
   "repository": {
     "type": "git",
-    "url": "<%= repoUrl %>"
+    "url": "<%= props.repository %>"
   },
   "licenses": [
     {
@@ -25,7 +29,8 @@
   "devDependencies": {
     "grunt-contrib-jshint": "~0.2.0",
     "grunt-contrib-nodeunit": "~0.1.2",
-    "grunt-contrib-clean": "~0.4.0"
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt": "<%= props.grunt_version %>"
   },
   "scripts": {
     "test": "grunt test"
