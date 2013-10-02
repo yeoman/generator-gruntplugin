@@ -2,13 +2,13 @@
  * <%= props.name %>
  * <%= props.homepage %>
  *
- * Copyright (c) <%= currentYear %> <%= props.author_name %>
+ * Copyright (c) <%= currentYear %> <%= props.authorName %>
  * Licensed under the <%= props.license %> license.
  */
 
 'use strict';
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   // Project configuration.
   grunt.initConfig({
@@ -29,7 +29,7 @@ module.exports = function(grunt) {
     },
 
     // Configuration to be run (and then tested).
-    <%= shortname %>: {
+    <%= shortName %>: {
       default_options: {
         options: {
         },
@@ -65,7 +65,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', '<%= shortname %>', 'nodeunit']);
+  grunt.registerTask('test', ['clean', '<%= shortName %>', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
