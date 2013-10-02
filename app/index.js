@@ -15,7 +15,7 @@ var GruntpluginGenerator = module.exports = function GruntpluginGenerator(args, 
     });
   });
 
-  this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
+  this.pkg = require(path.join(__dirname, '../package.json'));
 };
 util.inherits(GruntpluginGenerator, yeoman.generators.NamedBase);
 
