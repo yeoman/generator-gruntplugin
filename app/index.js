@@ -23,9 +23,9 @@ GruntpluginGenerator.prototype.askFor = function askFor() {
   var cb = this.async();
 
   console.log(
-    this.yeoman
-    + '\nFor more information about Grunt plugin best practices,'
-    + '\nplease see the docs at http://gruntjs.com/creating-plugins');
+    this.yeoman +
+    '\nFor more information about Grunt plugin best practices,' +
+    '\nplease see the docs at http://gruntjs.com/creating-plugins');
 
   var prompts = [{
     name: 'name',
@@ -62,20 +62,20 @@ GruntpluginGenerator.prototype.askFor = function askFor() {
     message: 'License',
     default: 'MIT'
   }, {
-    name: 'author_name',
+    name: 'authorName',
     message: 'Author name'
   }, {
-    name: 'author_email',
+    name: 'authorEmail',
     message: 'Author email'
   }, {
-    name: 'author_url',
+    name: 'authorUrl',
     message: 'Author url'
-  },{
-    name: 'node_version',
+  }, {
+    name: 'nodeVersion',
     message: 'What versions of node does it run on?',
     default: '>= 0.8.0'
-  },{
-    name: 'grunt_version',
+  }, {
+    name: 'gruntVersion',
     message: 'What version of grunt does it need?',
     default: '~0.4.0rc2'
   }];
@@ -85,8 +85,8 @@ GruntpluginGenerator.prototype.askFor = function askFor() {
   this.prompt(prompts, function (props) {
     this.slugname = this._.slugify(props.name);
 
-    this.shortname = props.name.replace(/^grunt[\-_]?/, '').replace(/[\W_]+/g, '_').replace(/^(\d)/, '_$1');
-    this.author_name = props.author_name.replace(/[\\"']/g, '\\$&').replace(/\u0000/g, '\\0');
+    this.shortName = props.name.replace(/^grunt[\-_]?/, '').replace(/[\W_]+/g, '_').replace(/^(\d)/, '_$1');
+    this.authorName = props.authorName.replace(/[\\"']/g, '\\$&').replace(/\u0000/g, '\\0');
 
     if (!props.homepage) {
       props.homepage = this.repoUrl;
@@ -100,13 +100,13 @@ GruntpluginGenerator.prototype.askFor = function askFor() {
 
 GruntpluginGenerator.prototype.tasks = function tasks() {
   this.mkdir('tasks');
-  this.template('tasks/name.js', 'tasks/' + this.shortname + '.js');
+  this.template('tasks/name.js', 'tasks/' + this.shortName + '.js');
 };
 
 GruntpluginGenerator.prototype.test = function test() {
   this.directory('test/expected');
   this.directory('test/fixtures');
-  this.template('test/name_test.js', 'test/' + this.shortname + '_test.js');
+  this.template('test/name_test.js', 'test/' + this.shortName + '_test.js');
 };
 
 GruntpluginGenerator.prototype.projectfiles = function projectfiles() {

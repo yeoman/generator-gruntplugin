@@ -6,16 +6,16 @@
   "repository": "<%= props.repository %>",
   "bugs": "<%= props.repository %>/issues",
   "author": {
-    "name": "<%= author_name %>",
-    "email": "<%= props.author_email %>"<% if (props.author_url) { %>,
-    "url": "<%= props.author_url %>"<% } %>
+    "name": "<%= authorName %>",
+    "email": "<%= props.authorEmail %>"<% if (props.authorUrl) { %>,
+    "url": "<%= props.authorUrl %>"<% } %>
   },
   "keywords": [
     "gruntplugin"
   ],
   "main": "Gruntfile.js",
   "engines": {
-    "node": "<%= props.node_version %>"
+    "node": "<%= props.nodeVersion %>"
   },
   "repository": {
     "type": "git",
@@ -30,7 +30,7 @@
     "grunt-contrib-jshint": "~0.2.0",
     "grunt-contrib-nodeunit": "~0.1.2",
     "grunt-contrib-clean": "~0.4.0",
-    "grunt": "<%= props.grunt_version %>"
+    "grunt": "<%= props.gruntVersion %>"
   },
   "scripts": {
     "test": "grunt test"
