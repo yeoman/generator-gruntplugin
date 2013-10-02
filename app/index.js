@@ -3,7 +3,7 @@
 var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
-
+var chalk = require('chalk');
 
 var GruntpluginGenerator = module.exports = function GruntpluginGenerator(args, options) {
   yeoman.generators.Base.apply(this, arguments);
@@ -34,10 +34,10 @@ GruntpluginGenerator.prototype.askFor = function askFor() {
       var contribRegex = /^grunt-contrib/;
 
       if (contribRegex.test(value)) {
-        console.log((
+        console.log(chalk.red(
           'Removing "contrib" from your project\'s name. The grunt-contrib' +
           '\nnamespace would like to be reserved for tasks maintained by the grunt team.'
-        ).red);
+        ));
         value = value.replace(contribRegex, 'grunt');
       }
 
