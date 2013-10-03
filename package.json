@@ -24,7 +24,8 @@
   },
   "dependencies": {
     "yeoman-generator": "~0.13.4",
-    "grunt-prompts": "~0.1.1"
+    "grunt-prompts": "~0.1.1",
+    "chalk": "~0.2.1"
   },
   "devDependencies": {
     "mocha": "~1.9.0"

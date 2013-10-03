@@ -22,12 +22,12 @@ var grunt = require('grunt');
     test.ifError(value)
 */
 
-exports.<%= shortname %> = {
-  setUp: function(done) {
+exports.<%= shortName %> = {
+  setUp: function (done) {
     // setup here if necessary
     done();
   },
-  default_options: function(test) {
+  default_options: function (test) {
     test.expect(1);
 
     var actual = grunt.file.read('tmp/default_options');
@@ -36,7 +36,7 @@ exports.<%= shortname %> = {
 
     test.done();
   },
-  custom_options: function(test) {
+  custom_options: function (test) {
     test.expect(1);
 
     var actual = grunt.file.read('tmp/custom_options');
