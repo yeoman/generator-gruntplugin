@@ -30,7 +30,8 @@
     "grunt-contrib-jshint": "~0.2.0",
     "grunt-contrib-nodeunit": "~0.1.2",
     "grunt-contrib-clean": "~0.4.0",
-    "grunt": "<%= props.gruntVersion %>"
+    "grunt": "<%= props.gruntVersion %>",
+    "load-grunt-tasks": "~0.2.0"
   },
   "scripts": {
     "test": "grunt test"
