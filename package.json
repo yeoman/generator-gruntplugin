@@ -1,6 +1,6 @@
 {
   "name": "generator-gruntplugin",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A Grunt plugin generator for Yeoman",
   "keywords": [
     "yeoman-generator",
