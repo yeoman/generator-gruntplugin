@@ -113,7 +113,7 @@ GruntpluginGenerator.prototype.projectfiles = function projectfiles() {
   this.copy('jshintrc', '.jshintrc');
   this.copy('gitignore', '.gitignore');
 
-  this.template('README.md');
-  this.template('Gruntfile.js');
+  this.template('_README.md', 'README.md');
+  this.template('_Gruntfile.js', 'Gruntfile.js');
   this.template('_package.json', 'package.json');
 };
