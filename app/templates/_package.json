@@ -17,10 +17,6 @@
   "engines": {
     "node": "<%= props.nodeVersion %>"
   },
-  "repository": {
-    "type": "git",
-    "url": "<%= props.repository %>"
-  },
   "licenses": [
     {
       "type": "<%= props.license %>"
