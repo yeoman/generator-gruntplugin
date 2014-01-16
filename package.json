@@ -5,10 +5,10 @@
   "keywords": [
     "yeoman-generator",
     "scaffold",
-    "grunt"
+    "grunt",
+    "gruntplugin",
+    "plugin"
   ],
-  "homepage": "https://github.com/yeoman/generator-gruntplugin",
-  "bugs": "https://github.com/yeoman/generator-gruntplugin/issues",
   "author": {
     "name": "Yeoman team",
     "email": "addyosmani@gmail.com",
@@ -23,17 +23,17 @@
     "test": "mocha"
   },
   "dependencies": {
-    "yeoman-generator": "~0.14.0",
-    "chalk": "~0.2.1"
+    "yeoman-generator": "~0.16.0",
+    "chalk": "~0.4.0"
   },
   "devDependencies": {
-    "mocha": "~1.9.0"
+    "mocha": "*"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
   },
   "engines": {
-    "node": ">= 0.8.0",
+    "node": ">=0.10.0",
     "npm": ">=1.2.10"
   },
   "licenses": [
