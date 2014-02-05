@@ -86,6 +86,7 @@ GruntpluginGenerator.prototype.askFor = function askFor() {
     this.slugname = this._.slugify(props.name);
 
     this.shortName = props.name.replace(/^grunt[\-_]?/, '').replace(/[\W_]+/g, '_').replace(/^(\d)/, '_$1');
+    this.authorOriginalName = props.authorName;
     this.authorName = props.authorName.replace(/[\\"']/g, '\\$&').replace(/\u0000/g, '\\0');
 
     if (!props.homepage) {
@@ -115,5 +116,48 @@ GruntpluginGenerator.prototype.projectfiles = function projectfiles() {
 
   this.template('_README.md', 'README.md');
   this.template('_Gruntfile.js', 'Gruntfile.js');
-  this.template('_package.json', 'package.json');
+};
+
+GruntpluginGenerator.prototype.packageFile = function packageFile() {
+  var pkgFile = {
+    name: this.slugname,
+    version: this.props.version,
+    description: this.props.description,
+    homepage: this.props.homepage,
+    repository: this.props.repository,
+    bugs: this.props.repository + 'issues',
+    author: {
+      name: this.authorOriginalName,
+      email: this.props.authorEmail
+    },
+    keywords: [
+      'gruntplugin'
+    ],
+    main: 'Gruntfile.js',
+    engines: {
+      node: this.props.nodeVersion
+    },
+    licenses: [
+      {
+        type: this.props.license
+      }
+    ],
+    devDependencies: {
+      'grunt-contrib-clean': '~0.4.0',
+      'grunt-contrib-jshint': '~0.2.0',
+      'grunt-contrib-nodeunit': '~0.1.2',
+      'grunt': this.props.gruntVersion,
+      'jshint-stylish': '~0.1.3',
+      'load-grunt-tasks': '~0.2.0'
+    },
+    scripts: {
+      test: 'grunt test'
+    }
+  };
+
+  if (this.props.authorUrl) {
+    pkgFile.author.url = this.props.authorUrl;
+  }
+
+  this.writeFileFromString(JSON.stringify(pkgFile, null, 2), 'package.json');
 };
