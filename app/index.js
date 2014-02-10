@@ -77,7 +77,7 @@ GruntpluginGenerator.prototype.askFor = function askFor() {
   }, {
     name: 'gruntVersion',
     message: 'What version of grunt does it need?',
-    default: '~0.4.0rc2'
+    default: '~0.4.2'
   }];
 
   this.currentYear = (new Date()).getFullYear();
@@ -143,12 +143,12 @@ GruntpluginGenerator.prototype.packageFile = function packageFile() {
       }
     ],
     devDependencies: {
-      'grunt-contrib-clean': '~0.4.0',
-      'grunt-contrib-jshint': '~0.2.0',
-      'grunt-contrib-nodeunit': '~0.1.2',
+      'grunt-contrib-clean': '~0.5.0',
+      'grunt-contrib-jshint': '~0.8.0',
+      'grunt-contrib-nodeunit': '~0.3.0',
       'grunt': this.props.gruntVersion,
-      'jshint-stylish': '~0.1.3',
-      'load-grunt-tasks': '~0.2.0'
+      'jshint-stylish': '~0.1.5',
+      'load-grunt-tasks': '~0.3.0'
     },
     scripts: {
       test: 'grunt test'
