@@ -125,7 +125,6 @@ GruntpluginGenerator.prototype.packageFile = function packageFile() {
     description: this.props.description,
     homepage: this.props.homepage,
     repository: this.props.repository,
-    bugs: this.props.repository + 'issues',
     author: {
       name: this.authorOriginalName,
       email: this.props.authorEmail
