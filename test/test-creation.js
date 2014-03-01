@@ -1,25 +1,32 @@
-/*global describe, beforeEach, it*/
+/*global describe, before, it*/
 'use strict';
 
-var path = require('path');
 var helpers = require('yeoman-generator').test;
+var path = require('path');
 
 describe('gruntplugin generator', function () {
-  beforeEach(function (done) {
-    helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
+  before(function (done) {
+    var app = helpers.createGenerator('gruntplugin:app', ['./app']);
+    var tempDir = path.join(__dirname, 'temp');
+    app.options['skip-install'] = true;
+    helpers.mockPrompt(app, {
+      'name': 'mytask',
+      'description': 'awesome grunt plugin',
+      'homepage': 'http://google.com',
+      'license': 'MIT',
+      'githubUsername': 'octocat',
+      'authorName': 'Octo Cat',
+      'authorEmail': 'octo@example.com'
+    });
+    var runApp = function (err) {
       if (err) {
         return done(err);
       }
-
-      this.app = helpers.createGenerator('gruntplugin:app', [
-        '../../app'
-      ]);
-      this.app.options['skip-install'] = true;
-      done();
-    }.bind(this));
+      app.run(done);
+    };
+    helpers.testDirectory(tempDir, runApp);
   });
-
-  it('creates expected files', function (done) {
+  it('creates expected files', function () {
     var expected = [
       'tasks/mytask.js',
       'test/mytask_test.js',
@@ -29,20 +36,6 @@ describe('gruntplugin generator', function () {
       'Gruntfile.js',
       ['package.json', /"name": "mytask"/],
     ];
-
-    helpers.mockPrompt(this.app, {
-      'name': 'mytask',
-      'description': 'awesome grunt plugin',
-      'homepage': 'http://google.com',
-      'license': 'MIT',
-      'githubUsername': 'octocat',
-      'authorName': 'Octo Cat',
-      'authorEmail': 'octo@example.com'
-    });
-
-    this.app.run({}, function () {
-      helpers.assertFiles(expected);
-      done();
-    });
+    helpers.assertFiles(expected);
   });
 });
