@@ -34,8 +34,12 @@ describe('gruntplugin generator', function () {
       '.gitignore',
       '.jshintrc',
       'Gruntfile.js',
-      ['package.json', /"name": "mytask"/],
+      'package.json',
     ];
-    helpers.assertFiles(expected);
+    helpers.assertFile(expected);
+  });
+
+  it('creates valid package.json', function() {
+    helpers.assertFileContent('package.json', RegExp(/"name": "mytask"/));
   });
 });
