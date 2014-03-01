@@ -1,7 +1,11 @@
 /*global describe, before, it*/
 'use strict';
 
+var assert  = require('assert');
+var glob = require('glob');
 var helpers = require('yeoman-generator').test;
+var jshint = require('jshint/src/cli').run;
+var reporter = require('jshint-stylish').reporter;
 var path = require('path');
 
 describe('gruntplugin generator', function () {
@@ -26,6 +30,7 @@ describe('gruntplugin generator', function () {
     };
     helpers.testDirectory(tempDir, runApp);
   });
+
   it('creates expected files', function () {
     var expected = [
       'tasks/mytask.js',
@@ -42,4 +47,17 @@ describe('gruntplugin generator', function () {
   it('creates valid package.json', function() {
     helpers.assertFileContent('package.json', RegExp(/"name": "mytask"/));
   });
+
+  it('creates a stylish plugin', function () {
+    var options = {
+      'show-non-errors': true,
+      'reporter': reporter,
+    };
+    glob('**/*.js', function (err, files) {
+      options.args = files;
+      var valid = jshint(options);
+      assert.ok(valid);
+    });
+  });
+
 });

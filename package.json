@@ -27,7 +27,10 @@
     "chalk": "~0.4.0"
   },
   "devDependencies": {
-    "mocha": "*"
+    "glob": "3.2.x",
+    "mocha": "*",
+    "jshint": "2.4.x",
+    "jshint-stylish": "0.1.x"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
