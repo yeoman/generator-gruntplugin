@@ -38,6 +38,7 @@ describe('gruntplugin generator', function () {
       'test/expected/default_options',
       '.gitignore',
       '.jshintrc',
+      '.editorconfig',
       'Gruntfile.js',
       'package.json',
     ];
