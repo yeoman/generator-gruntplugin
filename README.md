@@ -1,4 +1,4 @@
-# Grunt Plugin Generator [![Build Status](https://secure.travis-ci.org/yeoman/generator-gruntplugin.svg?branch=master)](https://travis-ci.org/yeoman/generator-gruntplugin) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+# Grunt Plugin Generator [![Build Status](https://secure.travis-ci.org/yeoman/generator-gruntplugin.svg?branch=master)](https://travis-ci.org/yeoman/generator-gruntplugin)
 
 > Create a Grunt plugin with [Yeoman][], including nodeunit unit tests.
 
