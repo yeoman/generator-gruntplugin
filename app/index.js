@@ -4,6 +4,7 @@ var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
+var pkgName = require('pkg-name');
 
 var GruntpluginGenerator = module.exports = function GruntpluginGenerator(args, options) {
   yeoman.generators.Base.apply(this, arguments);
@@ -42,6 +43,24 @@ GruntpluginGenerator.prototype.askFor = function askFor() {
       }
 
       return value;
+    },
+    validate: function(input) {
+      var done = this.async();
+
+      if (input === '') {
+        done('Please fill the plugin name.');
+        return;
+      }
+
+      pkgName(input, function (err, available) {
+        if (err) done(err);
+
+        if (!available.npm) {
+          done('Sorry, this name already exists on NPM. Please try another one.');
+        }
+
+        done(true);
+      });
     }
   }, {
     name: 'description',
