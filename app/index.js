@@ -4,7 +4,7 @@ var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
-var pkgName = require('pkg-name');
+var npmName = require('npm-name');
 
 var GruntpluginGenerator = module.exports = function GruntpluginGenerator(args, options) {
   yeoman.generators.Base.apply(this, arguments);
@@ -22,6 +22,7 @@ util.inherits(GruntpluginGenerator, yeoman.generators.NamedBase);
 
 GruntpluginGenerator.prototype.askFor = function askFor() {
   var cb = this.async();
+  var log = this.log;
 
   console.log(
     this.yeoman +
@@ -32,34 +33,23 @@ GruntpluginGenerator.prototype.askFor = function askFor() {
     name: 'name',
     message: 'Plugin Name',
     filter: function (value) {
+      var done = this.async();
       var contribRegex = /^grunt-contrib/;
 
       if (contribRegex.test(value)) {
-        console.log(chalk.red(
+        log.error(
           'Removing "contrib" from your project\'s name. The grunt-contrib' +
           '\nnamespace would like to be reserved for tasks maintained by the grunt team.'
-        ));
+        );
         value = value.replace(contribRegex, 'grunt');
       }
 
-      return value;
-    },
-    validate: function(input) {
-      var done = this.async();
-
-      if (input === '') {
-        done('Please fill the plugin name.');
-        return;
-      }
-
-      pkgName(input, function (err, available) {
-        if (err) done(err);
-
-        if (!available.npm) {
-          done('Sorry, this name already exists on NPM. Please try another one.');
+      npmName(value, function (err, available) {
+        if (!available) {
+          log.info(chalk.yellow(value) + ' already exists on npm. You might want to use another name.');
         }
 
-        done(true);
+        done(value);
       });
     }
   }, {
