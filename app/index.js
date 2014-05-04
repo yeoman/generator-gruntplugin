@@ -147,7 +147,7 @@ GruntpluginGenerator.prototype.packageFile = function packageFile() {
     engines: {
       node: this.props.nodeVersion
     },
-    licenses: this.props.license,
+    license: this.props.license,
     devDependencies: {
       'grunt-contrib-clean': '~0.5.0',
       'grunt-contrib-jshint': '~0.8.0',
