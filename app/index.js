@@ -137,7 +137,8 @@ GruntpluginGenerator.prototype.packageFile = function packageFile() {
     repository: this.props.repository,
     author: {
       name: this.authorOriginalName,
-      email: this.props.authorEmail
+      email: this.props.authorEmail,
+      url: this.props.authorUrl
     },
     keywords: [
       'gruntplugin'
@@ -146,11 +147,7 @@ GruntpluginGenerator.prototype.packageFile = function packageFile() {
     engines: {
       node: this.props.nodeVersion
     },
-    licenses: [
-      {
-        type: this.props.license
-      }
-    ],
+    licenses: this.props.license,
     devDependencies: {
       'grunt-contrib-clean': '~0.5.0',
       'grunt-contrib-jshint': '~0.8.0',
