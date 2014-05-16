@@ -20,20 +20,21 @@ var GruntpluginGenerator = module.exports = function GruntpluginGenerator(args, 
 };
 util.inherits(GruntpluginGenerator, yeoman.generators.NamedBase);
 
-GruntpluginGenerator.prototype.askFor = function askFor() {
-  var cb = this.async();
-  var log = this.log;
-
-  console.log(
+GruntpluginGenerator.prototype.welcome = function welcome() {
+  this.log(
     this.yeoman +
     '\nFor more information about Grunt plugin best practices,' +
     '\nplease see the docs at http://gruntjs.com/creating-plugins');
+};
+
+GruntpluginGenerator.prototype.askForName = function askForName() {
+  var cp = this.async();
+  var log = this.log;
 
   var prompts = [{
     name: 'name',
     message: 'Plugin Name',
     filter: function (value) {
-      var done = this.async();
       var contribRegex = /^grunt-contrib/;
 
       if (contribRegex.test(value)) {
@@ -44,15 +45,42 @@ GruntpluginGenerator.prototype.askFor = function askFor() {
         value = value.replace(contribRegex, 'grunt');
       }
 
-      npmName(value, function (err, available) {
-        if (!available) {
-          log.info(chalk.yellow(value) + ' already exists on npm. You might want to use another name.');
-        }
-
-        done(value);
-      });
+      return value;
     }
   }, {
+    type: 'confirm',
+    name: 'pkgName',
+    message: 'The name above already exists on npm, choose another?',
+    default: true,
+    when: function(answers) {
+      var done = this.async();
+
+      npmName(answers.name, function (err, available) {
+        if (!available) {
+          done(true);
+        }
+
+        done(false);
+      });
+    }
+  }];
+
+  this.prompt(prompts, function (props) {
+    if (props.pkgName) {
+      return this.askForName();
+    }
+
+    this.slugname = this._.slugify(props.name);
+    this.shortName = props.name.replace(/^grunt[\-_]?/, '').replace(/[\W_]+/g, '_').replace(/^(\d)/, '_$1');
+
+    cp();
+  }.bind(this));
+};
+
+GruntpluginGenerator.prototype.askFor = function askFor() {
+  var cb = this.async();
+
+  var prompts = [{
     name: 'description',
     message: 'Description',
     default: 'The best Grunt plugin ever.'
@@ -92,9 +120,6 @@ GruntpluginGenerator.prototype.askFor = function askFor() {
   this.currentYear = (new Date()).getFullYear();
 
   this.prompt(prompts, function (props) {
-    this.slugname = this._.slugify(props.name);
-
-    this.shortName = props.name.replace(/^grunt[\-_]?/, '').replace(/[\W_]+/g, '_').replace(/^(\d)/, '_$1');
     this.authorOriginalName = props.authorName;
     this.authorName = props.authorName.replace(/[\\"']/g, '\\$&').replace(/\u0000/g, '\\0');
 
