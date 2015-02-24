@@ -23,15 +23,15 @@
     "test": "mocha"
   },
   "dependencies": {
-    "yeoman-generator": "~0.16.0",
-    "chalk": "~0.4.0",
-    "npm-name": "~0.1.0"
+    "chalk": "^1.0.0",
+    "npm-name": "^1.0.3",
+    "yeoman-generator": "^0.18.9"
   },
   "devDependencies": {
-    "glob": "3.2.x",
-    "mocha": "*",
-    "jshint": "2.4.x",
-    "jshint-stylish": "0.1.x"
+    "glob": "^4.4.0",
+    "jshint": "^2.6.0",
+    "jshint-stylish": "^1.0.0",
+    "mocha": "*"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
