@@ -72,13 +72,16 @@ GruntpluginGenerator.prototype.askFor = function askFor() {
     default: 'MIT'
   }, {
     name: 'authorName',
-    message: 'Author name'
+    message: 'Author name',
+    store: true
   }, {
     name: 'authorEmail',
-    message: 'Author email'
+    message: 'Author email',
+    store: true
   }, {
     name: 'authorUrl',
-    message: 'Author url'
+    message: 'Author url',
+    store: true
   }, {
     name: 'nodeVersion',
     message: 'What versions of node does it run on?',
