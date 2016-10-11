@@ -29,9 +29,8 @@ module.exports = function (grunt) {
         if (!grunt.file.exists(filepath)) {
           grunt.log.warn('Source file "' + filepath + '" not found.');
           return false;
-        } else {
-          return true;
-        }
+        } 
+        return true;
       }).map(function (filepath) {
         // Read file source.
         return grunt.file.read(filepath);
