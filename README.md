@@ -1,5 +1,7 @@
 # Grunt Plugin Generator [![Build Status](https://secure.travis-ci.org/yeoman/generator-gruntplugin.svg?branch=master)](https://travis-ci.org/yeoman/generator-gruntplugin)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/yeoman/generator-gruntplugin.svg)](https://greenkeeper.io/)
+
 > Create a Grunt plugin with [Yeoman][], including nodeunit unit tests.
 
 This generator is based of

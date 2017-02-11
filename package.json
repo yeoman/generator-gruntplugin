@@ -24,13 +24,13 @@
   },
   "dependencies": {
     "chalk": "^1.0.0",
-    "npm-name": "^1.0.3",
-    "yeoman-generator": "^0.18.9"
+    "npm-name": "^3.0.0",
+    "yeoman-generator": "^1.1.0"
   },
   "devDependencies": {
-    "glob": "^4.4.0",
+    "glob": "^7.1.1",
     "jshint": "^2.6.0",
-    "jshint-stylish": "^1.0.0",
+    "jshint-stylish": "^2.2.1",
     "mocha": "*"
   },
   "peerDependencies": {
